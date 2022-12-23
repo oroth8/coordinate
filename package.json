@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint:commit": "lint-staged --no-stash"
+  },
+  "lint-staged": {
+    "{*.rb,*.rbi,Dangerfile,Gemfile}": [
+      "bundle exec rubocop --force-exclusion --auto-correct --fail-level autocorrect"
+    ],
+    "db/migrate/*.rb": [
+      "bundle exec migration_signature check"
+    ],
+    "*.rb":[
+      "bundle exec srb tc"
+    ]
+  }
+}

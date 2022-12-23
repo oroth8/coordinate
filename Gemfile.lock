@@ -113,6 +113,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
+    migration_signature (0.1.1)
+      parser (>= 2)
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
@@ -299,6 +301,7 @@ DEPENDENCIES
   faker
   importmap-rails
   jbuilder
+  migration_signature
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
