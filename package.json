@@ -13,7 +13,7 @@
       "prettier --write --ignore-unknown"
     ],
     "{*.rb,*.rbi,Dangerfile,Gemfile}": [
-      "bundle exec rubocop --force-exclusion --auto-correct --fail-level autocorrect"
+      "bundle exec rubocop --force-exclusion --autocorrect --fail-level autocorrect"
     ],
     "db/migrate/*.rb": [
       "bundle exec migration_signature check"
