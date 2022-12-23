@@ -44,7 +44,7 @@ jobs:
       - name: Run linters
         run: |
           bundle exec rubocop --force-exclusion --autocorrect --fail-level autocorrect
-          prettier --write --ignore-unknown
+          npx prettier --write --ignore-unknown "**/*.js"
           bundle exec migration_signature check
           bundle exec srb tc
       
