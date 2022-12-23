@@ -1,22 +1,25 @@
 {
   "devDependencies": {
     "husky": "^8.0.2",
-    "lint-staged": "^13.1.0"
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.1"
   },
   "scripts": {
     "prepare": "husky install",
     "lint:commit": "lint-staged --no-stash"
   },
   "lint-staged": {
+    "*.js": [
+      "prettier --write --ignore-unknown"
+    ],
     "{*.rb,*.rbi,Dangerfile,Gemfile}": [
       "bundle exec rubocop --force-exclusion --auto-correct --fail-level autocorrect"
     ],
     "db/migrate/*.rb": [
       "bundle exec migration_signature check"
     ],
-    "*.rb":[
+    "*.rb": [
       "bundle exec srb tc"
     ]
   }
 }
-  
