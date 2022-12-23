@@ -70,6 +70,7 @@ group :development do
   gem 'web-console'
   gem 'sorbet'
   gem 'tapioca', require: false
+  gem 'migration_signature'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
