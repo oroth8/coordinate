@@ -24,7 +24,7 @@ jobs:
           --health-retries 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -33,9 +33,10 @@ jobs:
           bundler-cache: true
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 19
+          cache: 'npm'
       
       - name: Install packages
         run: |
@@ -47,10 +48,6 @@ jobs:
           npx prettier --write --ignore-unknown "**/*.js"
           bundle exec migration_signature check
           bundle exec srb tc
-      
-      - name: Run security checks
-        run: |
-          bin/bundler-audit --update
 
       - name: Install dependencies
         run: |
