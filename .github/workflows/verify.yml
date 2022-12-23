@@ -7,8 +7,8 @@ env:
   POSTGRES_PASSWORD: password
 
 jobs:
-  tests:
-    name: Tests
+  build:
+    name: build 
     runs-on: ubuntu-latest
 
     services:
@@ -53,6 +53,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get -yqq install libpq-dev
           bundle install --jobs 4 --retry 3
+          
       - name: Run Tests
         env:
           RAILS_ENV: test
