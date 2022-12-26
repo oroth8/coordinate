@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 Sentry.init do |config|
   config.dsn = ENV['SENTRY_DSN']
