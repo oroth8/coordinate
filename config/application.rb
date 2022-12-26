@@ -25,6 +25,7 @@ module Coordinate
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.active_job.queue_adapter = :sidekiq
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -36,5 +37,19 @@ module Coordinate
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.my_app = MyAppConfig
+    config.heroku = HerokuConfig
+
+    # Set project hostname if missing.
+    # In production, we set the real hostname via ENV['MY_PROJECT_HOST']
+    config.my_app.host = "#{config.heroku.app_name}.herokuapp.com" if config.my_app.host.blank?
+
+    config.action_mailer.default_url_options = {
+      host: config.my_app.host,
+      port: config.my_app.port,
+      protocol: config.my_app.ssl? ? 'https' : 'http'
+    }
+    config.action_mailer.asset_host = config.my_app.asset_host
   end
 end

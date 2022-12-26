@@ -1,0 +1,30 @@
+{
+    "environments": {
+      "review": {
+        "scripts": {
+          "postdeploy": "bundle exec rails heroku:review:setup",
+          "pr-predestroy": "bundle exec rails heroku:review:destroy"
+        },
+        "formation": {
+          "web": {
+            "quantity": 1
+          }
+        },
+        "addons": [
+          {
+            "plan": "heroku-postgresql",
+            "options": {
+              "version": "14"
+            }
+          }
+        ],
+        "buildpacks": [
+          { "url": "heroku/nodejs" },
+          { "url": "heroku/ruby" },
+          {
+            "url": "https://github.com/Lostmyname/heroku-buildpack-post-build-clean"
+          }
+        ]
+      }
+    }
+  }
