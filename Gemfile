@@ -33,6 +33,7 @@ gem 'tailwindcss-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
+gem 'figaro'
 gem 'redis', '~> 4.0'
 gem 'sidekiq'
 
