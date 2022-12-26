@@ -11,7 +11,7 @@ command_missing () {
 
 # avoid commits to main
 branch=`git rev-parse --abbrev-ref HEAD`
-if [[ "$branch" == "main" && "$MAIN_MERGE" != 'true' ]]; then
+if [[ "$branch" == "dev" && "$MAIN_MERGE" != 'true' ]]; then
   echo ""
   echo "You are on branch $branch. Are you sure you want to commit to this branch?"
   echo "If so, commit with MAIN_MERGE=true in environment."
