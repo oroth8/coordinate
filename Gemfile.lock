@@ -74,6 +74,7 @@ GEM
     commander (4.6.0)
       highline (~> 2.0.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -183,6 +184,8 @@ GEM
       sorbet-runtime (>= 0.5.9204)
       unparser
     redis (4.8.0)
+    redis-client (0.11.2)
+      connection_pool
     regexp_parser (2.6.1)
     reline (0.3.2)
       io-console (~> 0.5)
@@ -224,6 +227,11 @@ GEM
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
     safe_type (1.1.1)
+    sidekiq (7.0.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     sorbet (0.5.10597)
       sorbet-static (= 0.5.10597)
     sorbet-coerce (0.7.0)
@@ -238,6 +246,7 @@ GEM
       sorbet-runtime (>= 0.5.9892)
     sorbet-runtime (0.5.10597)
     sorbet-static (0.5.10597-universal-darwin-21)
+    sorbet-static (0.5.10597-universal-darwin-22)
     sorbet-static (0.5.10597-x86_64-linux)
     sorbet-static-and-runtime (0.5.10597)
       sorbet (= 0.5.10597)
@@ -298,6 +307,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -315,6 +325,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-rails
   rubocop-rspec
+  sidekiq
   sorbet
   sorbet-rails
   sorbet-runtime
